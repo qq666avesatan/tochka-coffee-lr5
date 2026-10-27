@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Учебный сайт кофейни «Точка кофе»: меню, акции, часы работы и схема расположения. Все данные вымышлены.">
+  <title>Точка кофе — твоя пауза в ритме города</title>
+
+  <style>
+    :root {
+      --cream: #fbf6ee;
+      --paper: #fffcf7;
+      --coffee: #38271f;
+      --muted: #725b4b;
+      --caramel: #98572f;
+      --line: #dfcdbb;
+      --sand: #f0e3d3;
+      --sage: #e4e8d9;
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--coffee);
+      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-underline-offset: 5px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--caramel);
+      outline-offset: 5px;
+    }
+
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    section {
+      scroll-margin-top: 24px;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding-block: 72px;
+    }
+
+    .eyebrow {
+      margin-bottom: 16px;
+      color: var(--caramel);
+      font-size: 16px;
+      font-weight: 650;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .section-heading > p {
+      max-width: 350px;
+      color: var(--muted);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 10;
+      padding: 12px 18px;
+      border-radius: 10px;
+      background: var(--coffee);
+      color: white;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    /* Шапка и навигация */
+
+    .project-note {
+      padding: 8px 20px;
+      background: var(--sand);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      min-height: 100px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      font-size: 24px;
+      font-weight: 750;
+      letter-spacing: -.06em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--caramel);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 22px;
+    }
+
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      text-decoration: none;
+    }
+
+    .nav a:hover {
+      color: var(--caramel);
+      text-decoration: underline;
+    }
+
+    /* Главный экран */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 36px;
+      padding-block: 64px 72px;
+    }
+
+    .hero > * {
+      min-width: 0;
+    }
+
+    h1 {
+      font-size: clamp(42px, 5.6vw, 72px);
+      line-height: 1.06;
+      letter-spacing: -.055em;
+    }
+
+    h1 em {
+      color: var(--caramel);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 440px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      min-height: 54px;
+      margin-top: 30px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: var(--caramel);
+      color: white;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .button:hover {
+      background: #744020;
+    }
+
+    .hero-detail {
+      margin-top: 22px;
+      color: var(--muted);
+    }
+
+    .hero-detail::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 9px;
+      border-radius: 50%;
+      background: #61704f;
+    }
+
+    .hero-art {
+      position: relative;
+      border-radius: 48% 48% 24px 24px;
+      background: var(--sand);
+    }
+
+    .art-caption {
+      position: absolute;
+      bottom: 22px;
+      left: 24px;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper);
+      font-size: 16px;
+    }
+
+    /* О кофейне и преимущества */
+
+    .about {
+      border-block: 1px solid var(--line);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .about-copy p + p {
+      margin-top: 18px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .benefit {
+      padding: 26px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .benefit svg {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 26px;
+      color: var(--caramel);
+    }
+
+    .benefit p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* Меню */
+
+    .menu-section {
+      background: var(--sand);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px;
+    }
+
+    .menu-card {
+      padding: 28px;
+      border: 1px solid #e3d3c2;
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .menu-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    .menu-card ul {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .menu-card li {
+      padding-block: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-card li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .item-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .item-name {
+      font-size: 18px;
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    .price {
+      color: var(--caramel);
+      font-size: 18px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .portion {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+    }
+
+    .item-description {
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* Акции */
+
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .offer {
+      padding: 30px;
+      border-radius: var(--radius);
+      background: var(--sage);
+    }
+
+    .offer:nth-child(2) {
+      background: var(--sand);
+    }
+
+    .offer:nth-child(3) {
+      background: var(--coffee);
+      color: var(--cream);
+    }
+
+    .offer-value {
+      margin-bottom: 24px;
+      font: 400 52px/1 Georgia, "Times New Roman", serif;
+      letter-spacing: -.04em;
+    }
+
+    .offer p {
+      margin-top: 12px;
+    }
+
+    /* Контакты и схема */
+
+    .contacts-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    address {
+      margin-top: 30px;
+      font-style: normal;
+    }
+
+    .contact-item + .contact-item {
+      margin-top: 24px;
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--muted);
+    }
+
+    .contact-item a {
+      display: inline-block;
+      max-width: 100%;
+      padding-block: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .map {
+      min-width: 0;
+      margin: 0;
+    }
+
+    .map svg {
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f2ebdf;
+    }
+
+    .map figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* Подвал */
+
+    footer {
+      padding-block: 30px;
+      background: var(--coffee);
+      color: var(--cream);
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 44px;
+    }
+
+    footer p {
+      margin-top: 14px;
+      color: #e2cdbb;
+    }
+
+    footer a:focus-visible {
+      outline-color: #edbb8d;
+    }
+
+    /* Адаптация для планшетов и телефонов */
+
+    @media (max-width: 980px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-block: 18px;
+      }
+
+      .hero {
+        gap: 20px;
+      }
+
+      .benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .menu-card {
+        padding: 22px;
+      }
+
+      .about-inner,
+      .contacts-grid {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding-block: 52px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-block: 40px 52px;
+      }
+
+      .hero-art {
+        justify-self: center;
+        width: min(100%, 480px);
+      }
+
+      .hero-description {
+        max-width: 520px;
+      }
+
+      .about-inner,
+      .contacts-grid,
+      .menu-grid,
+      .offers {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .section-heading > p {
+        max-width: 520px;
+      }
+
+      .offer {
+        padding: 26px;
+      }
+
+      .offer-value {
+        margin-bottom: 16px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .nav {
+        gap: 0 18px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-art {
+        border-radius: 44% 44% 20px 20px;
+      }
+
+      .art-caption {
+        bottom: 14px;
+        left: 14px;
+        padding: 6px 12px;
+      }
+
+      .menu-card {
+        padding: 22px 20px;
+      }
+
+      .footer-top {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <div class="project-note">
+    Учебный проект · все данные вымышлены
+  </div>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Точка кофе — наверх">
+        <span class="brand-dot" aria-hidden="true"></span>
+        Точка кофе
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#about">О нас</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#menu">Меню</a>
+        <a href="#offers">Акции</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Для маленьких перерывов и больших идей</p>
+
+        <h1 id="hero-title">
+          Точка кофе —<br>
+          <em>твоя пауза</em><br>
+          в ритме города
+        </h1>
+
+        <p class="hero-description">
+          Кофе, свежая выпечка и уютное место для встреч, учёбы и работы
+        </p>
+
+        <a class="button" href="#menu">
+          Посмотреть меню
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <p class="hero-detail">
+          Кофе с собой и уютные столики внутри
+        </p>
+      </div>
+
+      <div class="hero-art">
+        <svg viewBox="0 0 500 510" aria-hidden="true" focusable="false">
+          <defs>
+            <filter id="cup-shadow" x="-40%" y="-40%" width="180%" height="190%">
+              <feDropShadow dx="0" dy="14" stdDeviation="12"
+                flood-color="#69472f" flood-opacity=".17"/>
+            </filter>
+
+            <radialGradient id="coffee-fill">
+              <stop offset="0" stop-color="#bc8350"/>
+              <stop offset="1" stop-color="#8c502d"/>
+            </radialGradient>
+          </defs>
+
+          <circle cx="270" cy="220" r="170" fill="#e5d4be"/>
+          <circle cx="270" cy="220" r="147" fill="none"
+            stroke="#b99572" stroke-dasharray="3 9"/>
+          <path d="M42 355Q180 298 466 390"
+            fill="none" stroke="#d2b596" stroke-width="2"/>
+
+          <!-- Круассан -->
+          <g transform="translate(62 90) rotate(-22 60 50)" filter="url(#cup-shadow)">
+            <path d="M4 67Q13 8 70 6Q126 8 137 67L111 56Q72 23 30 59Z"
+              fill="#c28142"/>
+            <path d="M30 59Q34 19 55 10L66 42M69 6L82 41M91 12Q111 30 111 56"
+              fill="none" stroke="#f0bc74" stroke-width="13" stroke-linecap="round"/>
+            <path d="M9 59L31 47M115 44L132 58"
+              stroke="#92572c" stroke-width="5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Чашка кофе -->
+          <g filter="url(#cup-shadow)">
+            <ellipse cx="278" cy="256" rx="142" ry="126" fill="#fdf8ee"/>
+            <ellipse cx="278" cy="256" rx="121" ry="106"
+              fill="none" stroke="#e7d9c7" stroke-width="2"/>
+            <path d="M362 219C428 203 433 284 368 278"
+              fill="none" stroke="#fffaf2" stroke-width="23"/>
+            <circle cx="275" cy="246" r="96" fill="#fffdf7"/>
+            <circle cx="275" cy="246" r="81" fill="url(#coffee-fill)"/>
+            <circle cx="275" cy="246" r="75"
+              fill="none" stroke="#d9a568" stroke-width="3"/>
+
+            <g fill="#fff0d8" transform="rotate(-20 275 246)">
+              <path d="M275 294C251 279 229 257 242 249C254 242 267 265 275 281C284 261 298 244 310 251C320 261 297 282 275 294Z"/>
+              <path d="M275 269C249 255 238 235 249 230C261 225 270 244 275 255C283 238 294 225 304 232C313 241 295 259 275 269Z"/>
+              <path d="M275 247C254 235 249 219 258 215C266 211 272 225 275 232C281 218 289 211 296 217C303 224 289 240 275 247Z"/>
+              <path d="M275 225C256 210 266 192 275 188C287 196 291 212 275 225Z"/>
+              <path d="M275 208L275 300"
+                fill="none" stroke="#fff0d8" stroke-width="4" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <!-- Стакан с собой -->
+          <g transform="translate(65 324) rotate(13 46 58)" filter="url(#cup-shadow)">
+            <path d="M6 8H94L82 125Q48 138 18 125Z" fill="#fbf0da"/>
+            <path d="M11 45H90L85 95H16Z" fill="#98572f"/>
+            <rect x="0" y="0" width="100" height="17" rx="6" fill="#493227"/>
+            <path d="M13 0L18-10H82L88 0" fill="#5f4333"/>
+            <circle cx="50" cy="70" r="9" fill="#fbf0da"/>
+          </g>
+
+          <g fill="#624631">
+            <ellipse cx="405" cy="123" rx="7" ry="11" transform="rotate(30 405 123)"/>
+            <ellipse cx="431" cy="143" rx="7" ry="11" transform="rotate(-25 431 143)"/>
+            <ellipse cx="413" cy="414" rx="7" ry="11" transform="rotate(55 413 414)"/>
+          </g>
+
+          <path d="M165 393Q183 379 192 398Q180 410 165 393Z" fill="#72805c"/>
+          <path d="M183 411Q203 396 212 416Q196 428 183 411Z" fill="#89936e"/>
+        </svg>
+
+        <span class="art-caption">Хороший день начинается с паузы</span>
+      </div>
+    </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="container about-inner">
+        <div>
+          <p class="eyebrow">О нас</p>
+          <h2 id="about-title">Рядом, когда<br>нужен перерыв</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            «Точка кофе» — дружелюбная кофейня рядом с учебными корпусами
+            и офисами. Здесь пахнет свежим кофе и выпечкой, а бариста
+            помогают выбрать напиток под настроение. Можно заглянуть
+            между занятиями, встретиться с друзьями или взять любимый
+            кофе с собой.
+          </p>
+          <p>
+            Мы любим спокойную атмосферу: за столиком удобно открыть
+            ноутбук, почитать конспекты или просто никуда не спешить.
+            А после работы приятно отложить дела и подарить себе
+            немного времени с чашкой тёплого кофе.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="benefits" aria-labelledby="benefits-title">
+      <p class="eyebrow">Преимущества</p>
+      <h2 id="benefits-title">Всё для твоей паузы</h2>
+
+      <div class="benefits">
+        <article class="benefit">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+            stroke-width="1.8" aria-hidden="true">
+            <ellipse cx="20" cy="20" rx="12" ry="16" transform="rotate(35 20 20)"/>
+            <path d="M28 7C10 15 30 24 12 33"/>
+          </svg>
+          <h3>Свежие зёрна</h3>
+          <p>Насыщенный вкус и аромат в каждой чашке.</p>
+        </article>
+
+        <article class="benefit">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+            stroke-width="1.8" aria-hidden="true">
+            <rect x="7" y="9" width="26" height="20" rx="3"/>
+            <path d="M3 33H37M13 17Q20 10 27 17M17 21Q20 18 23 21"/>
+            <circle cx="20" cy="25" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <h3>Удобно учиться и работать</h3>
+          <p>Беспроводной интернет и розетки для твоего ноутбука.</p>
+        </article>
+
+        <article class="benefit">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+            stroke-width="1.8" aria-hidden="true">
+            <path d="M9 13H31L28 35H12ZM7 8H33V13H7ZM12 8L14 3H26L28 8M11 21H29M12 28H28"/>
+          </svg>
+          <h3>Кофе с собой</h3>
+          <p>Удобно по пути на занятия или в офис.</p>
+        </article>
+
+        <article class="benefit">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+            stroke-width="1.8" aria-hidden="true">
+            <circle cx="20" cy="20" r="16"/>
+            <path d="M16 31V10H23A6 6 0 0 1 23 22H12M12 27H24"/>
+          </svg>
+          <h3>Доступные цены</h3>
+          <p>Приятный перерыв без больших расходов.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="menu-section section" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Меню</p>
+            <h2 id="menu-title">Твоя любимая чашка</h2>
+          </div>
+          <p>
+            Классика, к которой хочется возвращаться.
+            И что-нибудь вкусное к ней.
+          </p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card">
+            <h3>Кофе</h3>
+            <ul>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Эспрессо</span>
+                  <span class="price">120 ₽</span>
+                </div>
+                <span class="portion">30 мл</span>
+                <p class="item-description">Крепкий кофе с насыщенным ароматом.</p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Американо</span>
+                  <span class="price">150 ₽</span>
+                </div>
+                <span class="portion">250 мл</span>
+                <p class="item-description">Эспрессо с горячей водой и мягким вкусом.</p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Капучино</span>
+                  <span class="price">190 ₽</span>
+                </div>
+                <span class="portion">250 мл</span>
+                <p class="item-description">Кофе с молоком и воздушной пеной.</p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Латте</span>
+                  <span class="price">220 ₽</span>
+                </div>
+                <span class="portion">300 мл</span>
+                <p class="item-description">Много тёплого молока и нежный кофейный вкус.</p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Раф</span>
+                  <span class="price">250 ₽</span>
+                </div>
+                <span class="portion">300 мл</span>
+                <p class="item-description">Кофе со сливками и лёгкой ванильной сладостью.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-card">
+            <h3>Другие напитки</h3>
+            <ul>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Чай</span>
+                  <span class="price">140 ₽</span>
+                </div>
+                <span class="portion">350 мл</span>
+                <p class="item-description">Ароматный чёрный или зелёный чай на выбор.</p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Какао</span>
+                  <span class="price">180 ₽</span>
+                </div>
+                <span class="portion">300 мл</span>
+                <p class="item-description">Тёплый шоколадный напиток на молоке.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="menu-card">
+            <h3>Выпечка</h3>
+            <ul>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Круассан</span>
+                  <span class="price">160 ₽</span>
+                </div>
+                <span class="portion">1 шт.</span>
+                <p class="item-description">
+                  Слоёный, с хрустящей корочкой и сливочным вкусом.
+                </p>
+              </li>
+              <li>
+                <div class="item-heading">
+                  <span class="item-name">Чизкейк</span>
+                  <span class="price">230 ₽</span>
+                </div>
+                <span class="portion">1 порция</span>
+                <p class="item-description">
+                  Нежный сливочный десерт на песочной основе.
+                </p>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="note">
+          Цены приведены для учебного проекта и являются вымышленными.
+        </p>
+      </div>
+    </section>
+
+    <section class="container section" id="offers" aria-labelledby="offers-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Акции</p>
+          <h2 id="offers-title">Ещё один повод зайти</h2>
+        </div>
+        <p>
+          Маленькие приятности для студентов, ранних пташек
+          и любителей выпечки.
+        </p>
+      </div>
+
+      <div class="offers">
+        <article class="offer">
+          <div class="offer-value">−10%</div>
+          <h3>Студенческая скидка</h3>
+          <p>
+            Скидка 10% на напитки при предъявлении студенческого билета.
+          </p>
+        </article>
+
+        <article class="offer">
+          <div class="offer-value">−15%</div>
+          <h3>Утренний кофе</h3>
+          <p>
+            Скидка 15% на кофе по будням с 08:00 до 10:00.
+          </p>
+        </article>
+
+        <article class="offer">
+          <div class="offer-value">299 ₽</div>
+          <h3>Кофе + круассан</h3>
+          <p>
+            Капучино 250 мл и круассан за 299 ₽.
+            Пара для неспешного перерыва.
+          </p>
+        </article>
+      </div>
+
+      <p class="note">Все акции учебные. Скидки не суммируются.</p>
+    </section>
+
+    <section class="contacts-section section" id="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts-grid">
+        <div>
+          <p class="eyebrow">Контакты</p>
+          <h2 id="contacts-title">Встретимся в точке</h2>
+
+          <address>
+            <div class="contact-item">
+              <span class="contact-label">Адрес</span>
+              <p>
+                г. Студенческий,<br>
+                ул. Университетская, д. 12
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Часы работы</span>
+              <p>
+                Понедельник–пятница: 08:00–21:00<br>
+                Суббота–воскресенье: 09:00–22:00
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Электронная почта</span>
+              <a href="mailto:hello@tochka-coffee.example">
+                hello@tochka-coffee.example
+              </a>
+            </div>
+          </address>
+
+          <p class="note">
+            Адрес и почта вымышлены и приведены для учебного проекта.
+          </p>
+        </div>
+
+        <figure class="map">
+          <svg viewBox="0 0 560 380" role="img"
+            aria-labelledby="map-title map-description">
+            <title id="map-title">Учебная схема расположения</title>
+            <desc id="map-description">
+              Условная кофейня на Университетской улице, дом 12,
+              рядом с учебным корпусом и сквером.
+              Все места вымышлены.
+            </desc>
+
+            <rect x="32" y="28" width="180" height="105" rx="15" fill="#e0d3c1"/>
+            <rect x="351" y="28" width="177" height="105" rx="15" fill="#e3d6c6"/>
+            <rect x="34" y="250" width="188" height="101" rx="15" fill="#dce1cd"/>
+            <rect x="352" y="251" width="176" height="100" rx="15" fill="#e0d3c1"/>
+
+            <path d="M0 191H560M281 0V380" stroke="#fffaf1" stroke-width="58"/>
+            <path d="M0 191H560M281 0V380"
+              stroke="#d0bba1" stroke-width="2" stroke-dasharray="7 9"/>
+
+            <g font-family="system-ui, sans-serif" font-size="16"
+              fill="#584132" text-anchor="middle">
+              <text x="122" y="78">Учебный</text>
+              <text x="122" y="101">корпус</text>
+              <text x="440" y="89">Офисы</text>
+              <text x="130" y="318">Сквер</text>
+              <text x="440" y="310">Дом 12</text>
+            </g>
+
+            <rect x="89" y="174" width="382" height="34" rx="17" fill="#fffaf1"/>
+            <text x="280" y="197" font-family="system-ui, sans-serif"
+              font-size="18" fill="#584132" text-anchor="middle">
+              ул. Университетская
+            </text>
+
+            <g fill="#88966d">
+              <circle cx="69" cy="275" r="12"/>
+              <circle cx="98" cy="275" r="10"/>
+              <circle cx="191" cy="327" r="12"/>
+            </g>
+
+            <path d="M439 273C439 273 413 246 413 229A26 26 0 0 1 465 229C465 246 439 273 439 273Z"
+              fill="#98572f"/>
+            <circle cx="439" cy="229" r="9" fill="#fffaf1"/>
+
+            <rect x="360" y="333" width="160" height="32" rx="16" fill="#38271f"/>
+            <text x="440" y="355" fill="#fffaf1"
+              font-family="system-ui, sans-serif" font-size="17" text-anchor="middle">
+              Точка кофе
+            </text>
+          </svg>
+
+          <figcaption>
+            Учебная схема расположения. Все объекты условные.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <a class="brand" href="#top">
+          <span class="brand-dot" aria-hidden="true"></span>
+          Точка кофе
+        </a>
+
+        <a class="back-top" href="#top">
+          Наверх <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+
+      <p>
+        Учебный проект. Заведение, контакты, цены и акции вымышлены.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
