@@ -616,9 +616,12 @@
       }
     }
     /* ЛР5: локальные фотографии */
-    .hero-art { overflow: hidden; }
+    .hero-art { overflow: hidden; margin: 0; }
     .hero-photo { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1.05; object-fit: cover; }
-    .menu-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; margin-bottom: 22px; }
+    .menu-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 16px; }
+    .menu-photo-figure { margin: 0 0 22px; }
+    .photo-caption { margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+    footer .image-credit { margin-top: 8px; }
     @media (max-width: 600px) { .art-caption { bottom: 14px; left: 12px; right: 12px; text-align: center; font-size: 13px; padding: 8px; } }
 
 /* ЛР5: доступная фильтрация меню */
