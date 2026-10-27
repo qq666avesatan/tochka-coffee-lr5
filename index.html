@@ -150,8 +150,15 @@
           </p>
         </div>
 
+        <div class="menu-filters" role="group" aria-label="Категории меню" hidden>
+          <button type="button" class="menu-filter" data-filter="all" aria-pressed="true">Всё меню</button>
+          <button type="button" class="menu-filter" data-filter="coffee" aria-pressed="false">Кофе</button>
+          <button type="button" class="menu-filter" data-filter="drinks" aria-pressed="false">Другие напитки</button>
+          <button type="button" class="menu-filter" data-filter="bakery" aria-pressed="false">Выпечка</button>
+        </div>
+        <p class="visually-hidden" id="menu-status" aria-live="polite" aria-atomic="true"></p>
         <div class="menu-grid">
-          <article class="menu-card">
+          <article class="menu-card" data-category="coffee">
             <img class="menu-photo" src="assets/images/cappuccino.jpg" alt="Капучино с рисунком сердца на молочной пене" width="1536" height="1024" loading="lazy">
             <h3>Кофе</h3>
             <ul>
@@ -198,7 +205,7 @@
             </ul>
           </article>
 
-          <article class="menu-card">
+          <article class="menu-card" data-category="drinks">
             <h3>Другие напитки</h3>
             <ul>
               <li>
@@ -220,7 +227,7 @@
             </ul>
           </article>
 
-          <article class="menu-card">
+          <article class="menu-card" data-category="bakery">
             <img class="menu-photo" src="assets/images/croissant.jpg" alt="Золотистые слоёные круассаны на керамической тарелке" width="1536" height="1024" loading="lazy">
             <h3>Выпечка</h3>
             <ul>
@@ -409,5 +416,6 @@
       </p>
     </div>
   </footer>
+  <script src="main.js" defer></script>
 </body>
 </html>
