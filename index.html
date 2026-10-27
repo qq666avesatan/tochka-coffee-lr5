@@ -58,11 +58,11 @@
         </p>
       </div>
 
-      <div class="hero-art">
+      <figure class="hero-art">
         <img class="hero-photo" src="assets/images/hero.jpg" alt="Капучино и свежий круассан на столике у окна" width="1024" height="1536" fetchpriority="high">
 
-        <span class="art-caption">Хороший день начинается с паузы</span>
-      </div>
+        <figcaption class="art-caption">Капучино и свежий круассан</figcaption>
+      </figure>
     </section>
 
     <section class="about section" id="about" aria-labelledby="about-title">
@@ -159,7 +159,10 @@
         <p class="visually-hidden" id="menu-status" aria-live="polite" aria-atomic="true"></p>
         <div class="menu-grid">
           <article class="menu-card" data-category="coffee">
-            <img class="menu-photo" src="assets/images/cappuccino.jpg" alt="Капучино с рисунком сердца на молочной пене" width="1536" height="1024" loading="lazy">
+            <figure class="menu-photo-figure">
+              <img class="menu-photo" src="assets/images/cappuccino.jpg" alt="Капучино с рисунком сердца на молочной пене" width="1536" height="1024" loading="lazy">
+              <figcaption class="photo-caption">Капучино с молочной пеной</figcaption>
+            </figure>
             <h3>Кофе</h3>
             <ul>
               <li>
@@ -228,7 +231,10 @@
           </article>
 
           <article class="menu-card" data-category="bakery">
-            <img class="menu-photo" src="assets/images/croissant.jpg" alt="Золотистые слоёные круассаны на керамической тарелке" width="1536" height="1024" loading="lazy">
+            <figure class="menu-photo-figure">
+              <img class="menu-photo" src="assets/images/croissant.jpg" alt="Золотистые слоёные круассаны на керамической тарелке" width="1536" height="1024" loading="lazy">
+              <figcaption class="photo-caption">Круассаны из слоёного теста</figcaption>
+            </figure>
             <h3>Выпечка</h3>
             <ul>
               <li>
@@ -414,6 +420,7 @@
       <p>
         Учебный проект. Заведение, контакты, цены и акции вымышлены.
       </p>
+      <p class="image-credit">Изображения созданы с помощью ИИ</p>
     </div>
   </footer>
   <script src="main.js" defer></script>
